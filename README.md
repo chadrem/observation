@@ -1,6 +1,7 @@
 # Observation
 
-TODO: Write a gem description
+Observation lets you add a simple event system to any Ruby class.
+Use it to decrease coupling between your objects.
 
 ## Installation
 
@@ -16,9 +17,23 @@ Or install it yourself as:
 
     $ gem install observation
 
-## Usage
+## Example
 
-TODO: Write usage instructions here
+    class Foo
+      include Observation::Dispatcher
+
+      def do_something
+        dispatch('some_event', :my_key => 'some_value')
+      end
+    end
+
+    f = Foo.new
+    callback = proc { |event_type, data|
+      puts "Event handler called! event_type=#{event_type}, data=#{data}"
+    }
+
+    f.add_listener('some_event', callback)
+    f.do_something
 
 ## Contributing
 
