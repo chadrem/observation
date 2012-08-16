@@ -53,7 +53,7 @@ module Observation::Dispatcher
 
   private
 
-  def dispatch(event_type, data = {})
+  def dispatch(event_type, data = nil)
     setup_event_dispatcher
     validate_event_type(event_type)
 
