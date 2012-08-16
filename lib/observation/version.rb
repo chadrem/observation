@@ -1,0 +1,3 @@
+module Observation
+  VERSION = "0.1.0"
+end
