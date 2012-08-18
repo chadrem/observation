@@ -62,7 +62,7 @@ module Observation::Dispatcher
     end
 
     callbacks.each do |callback|
-      callback.call(event_type, data)
+      callback.call(event_type, data, self)
     end
 
     return true

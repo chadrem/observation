@@ -41,8 +41,8 @@ task :harness => :environment do
   end
 
   f = Foo.new
-  callback = proc { |event_type, data|
-    puts "Event handler called! event_type=#{event_type}, data=#{data}"
+  callback = proc { |event_type, data, target|
+    puts "Event handler called! event_type=#{event_type}, data=#{data}, target=#{target}"
   }
 
   f.add_listener('bar', callback)
